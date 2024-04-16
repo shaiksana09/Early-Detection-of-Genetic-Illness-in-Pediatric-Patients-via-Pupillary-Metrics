@@ -1,0 +1,208 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block contents%}
+<style>
+    .home_slider_content{
+        position: relative;
+		top: 42%;
+		transform: translateY(-50%);
+    }
+</style>
+<style>
+    .home_slider_content {
+        position: relative;
+        top: 42%;
+        transform: translateY(-50%);
+    }
+    
+    /* Style for input boxes */
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 5px 10px;
+        margin: 1px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: none;
+    }
+
+    input[type="text-primary"],
+    input[type="name"] {
+        width: 100%;
+        padding: 5px 10px;
+        margin: 1px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: none;
+    }
+
+    /* Style for submit button */
+    .comment_button {
+        background-color: #5257b9;
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .comment_button:hover {
+        background-color: #3e428e;
+    }
+
+    .home_slider_title {
+        font-size:xx-large;
+        margin: 10px 0;
+    }
+</style>
+
+<div class="home">
+		<div class="home_slider_container">
+
+			<!-- Home Slider -->
+			<div class="owl-carousel owl-theme home_slider">
+
+				<!-- Home Slider Item -->
+				<div class="owl-item">
+					<div class="home_slider_background" style="background-image:url({%static 'images/home_slider_1.jpg'%})"></div>
+					<div class="home_slider_content">
+						<div class="container">
+							<div class="row">
+								<div class="col text-center">
+									<div class="home_slider_title">User Register Form </div>
+                                                 <center>
+                                        <form action="{%url 'UserRegisterActions'%}" method="POST" class="text-primary comment_form"" style="width:100%">
+
+                    {% csrf_token %}
+                    <table>
+                        <!-- <tr>
+                            <td class="text-primary">User Name</td>
+                            <td>{{form.name}}</td>
+                        </tr> 
+                        <tr>
+                            <td>Login ID</td>
+                            <td>{{form.loginid}}</td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>{{form.password}}</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile</td>
+                            <td>{{form.mobile}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{form.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Locality</td>
+                            <td>{{form.locality}}</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>{{form.address}}</td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td>{{form.city}}</td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td>{{form.state}}</td>
+                        </tr> -->
+                        <tr>
+                            <td>User Name</td>
+                            <!-- <td>{{form.name}}</td> -->
+                            <td><input type="text-primary" name="name" placeholder="Enter User Name"></td>
+                        </tr> 
+                        <tr>
+                            <td>Login ID</td>
+                            <td><input type="text" name="loginid" placeholder="Enter login ID"></td>
+                            <!-- <td>{{form.loginid}}</td> -->
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <!-- <td>{{form.password}}</td> -->
+                            <td><input type="password" name = "password" placeholder="Enter your Password"></td>
+                        </tr>
+                        <tr>
+                            <td>Mobile</td>
+                            <!-- <td>{{form.mobile}}</td> -->
+                            <td><input type= text name="mobile" placeholder="Enter Mobile Number"></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <!-- <td>{{form.email}}</td> -->
+                            <td><input type = text name="email" placeholder="Enter your Mail"></td>
+                        </tr>
+                        <tr>
+                            <td>Locality</td>
+                            <!-- <td>{{form.locality}}</td> -->
+                            <td><input type = text name="locality" placeholder="Enter your Locality"></td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <!-- <td>{{form.address}}</td> -->
+                            <td><input type = text name="address" placeholder="Enter your Address"></td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <!-- <td>{{form.city}}</td> -->
+                            <td><input type = text name="city" placeholder="Enter your City">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <!-- <td>{{form.state}}</td> -->
+                            <td><input type = text name="state" placeholder="Enter your State"></td>
+                        </tr>
+                        <tr>
+                            <td>{{form.status}}</td>
+                        </tr>
+<tr><td></td>
+     <!-- <td><button type="submit" class="comment_button trans_200" >Register</button></td> -->
+     <td><button type="submit" class="comment_button trans_200" style="background-color: #5257b9; /* Green */
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;">Register</button></td>
+                        </tr>
+
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <font color='GREEN'> {{ message }}</font>
+                        {% endfor %}
+                        {% endif %}
+
+                    </table>
+
+                </form>
+                                                 </center>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%}

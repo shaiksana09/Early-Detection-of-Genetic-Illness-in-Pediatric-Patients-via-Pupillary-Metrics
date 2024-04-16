@@ -1,0 +1,76 @@
+{%extends 'admins/adminbase.html'%}
+{%load static%}
+
+{%block contents%}
+<style>
+    body{
+        overflow: scroll;
+    }
+    .home_slider_content {
+        position: relative;
+        top: 42%;
+        transform: translateY(-50%);
+    }
+</style>
+
+<div class="home">
+ 
+
+			<!-- Home Slider -->
+		 
+
+				<!-- Home Slider Item --> 
+					<div class="home_slider_content">
+						<div class="container"> 
+								<div class="col text-center">
+ 
+										 
+									<div class="home_slider_subtitle">Registered Users and Activate them</div>
+                                            <font color="Black">
+                                                  <table border="2px" class="table table-hover table-dark">
+                    <thead>
+                    <tr class="table-danger">
+                        <th scope="col">S.No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Login ID</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Activate</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <!-- <tr scope="row" style="color: BLUE; background-color:#FFFCBB"> -->
+                        <tr scope="row" style="color: rgb(252, 252, 255); background-color:#484845">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.loginid}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.status}}</td>
+
+                        {% if i.status == 'waiting' %}
+                        <td><a class="btn-link" href="/AdminActivaUsers/?uid={{ i.id }}"
+                               style="color:rgb(160, 217, 155)">Activate</a></td>
+                        {% else %}
+                        <td> Activated</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+
+
+
+                                            </font>
+                                        
+									  
+						 
+						
+					 
+				</div>
+			</div>
+		</div>
+	</div>
+{%endblock%}

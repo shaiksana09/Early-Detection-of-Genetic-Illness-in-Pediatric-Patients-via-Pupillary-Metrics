@@ -1,0 +1,50 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block contents%}
+
+
+<div class="home">
+		<div class="home_slider_container">
+
+			<!-- Home Slider -->
+			<div class="owl-carousel owl-theme home_slider">
+
+				<!-- Home Slider Item -->
+				<div class="owl-item">
+					<style>
+						.owl_item{
+						 background-color: white;
+						}
+						 .home_slider_content {
+							 position: relative;
+							 top: 42%;
+							 transform: translateY(-50%);
+						 }
+						 .home{
+							 background-color: white;
+						 }
+					</style>
+					<!-- <div class="home_slider_background" style="background-image:url({%static 'images/home_slider_1.jpg'%})"></div> -->
+					<div class="home_slider_content" style="overflow: hidden;">
+						<div class="container">
+							<div class="row">
+								<div class="col text-center">
+									 
+									<div class="home_slider_title">Early Detection of Genetic Illness in Pediatric Patients via Pupillary Metrics</div>
+									<!-- <div class="home_slider_subtitle"> Pupillometry</div> -->
+									<div class="home_slider_form_container">
+										<p>
+                                            <font color="Black">Genetic diseases often manifest early in life, and early detection can significantly impact treatment outcomes and quality of life for affected individuals. Pupillometry offers a potential means of detecting subtle physiological abnormalities associated with genetic diseases before clinical symptoms become apparent. The main motive of Early Detection of Genetic Illness in Pediatric Patients via Pupillary Metrics is to leverage pupillary responses as a non-invasive and objective measure for early detection and monitoring of genetic diseases in children. Automated pupillometry systems can be integrated into existing healthcare infrastructure, including pediatric clinics and hospitals, facilitating widespread adoption and routine screening for genetic diseases in children.
+                                            </font>
+                                        </p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{%endblock%}
